@@ -1,0 +1,11 @@
+appId: org.awesome.app
+---
+- runFlow:
+    when:
+      platform: android
+    file: dashboard_android.yaml
+
+- runFlow:
+    when:
+      platform: ios
+    file: dashboard_ios.yaml

@@ -1,0 +1,8 @@
+# loadElements.yaml
+
+appId: org.awesome.app
+---
+- runScript: ../../pageObjects/dashboardPage.js
+- runScript: ../../pageObjects/settingsPage.js
+- runScript: ../../pageObjects/sidemenuPage.js  
+- runScript: ../../pageObjects/navigationPage.js

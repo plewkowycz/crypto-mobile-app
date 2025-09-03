@@ -1,0 +1,77 @@
+appId: org.awesome.app
+---
+- runFlow: ../elements/loadElements.yaml
+- launchApp
+
+
+- assertVisible:
+    id: ${output.dashboard.screen}
+
+- tapOn:
+    id: ${output.sidemenu.hamburgerMenuId}
+
+- assertVisible:
+    id: ${output.sidemenu.screen}
+
+- assertVisible:
+    text: ${output.sidemenu.sideMenuText}
+- assertVisible:
+    text: ${output.sidemenu.legendText}
+- assertVisible:
+    text: ${output.sidemenu.ultimateAnswerButton}
+
+
+- tapOn:
+    text: ${output.sidemenu.ultimateAnswerButton}
+
+
+- assertVisible:
+    text: ${output.sidemenu.ultimateAnswerValue}
+
+- assertVisible:
+    text: ${output.sidemenu.okButton}
+
+
+- tapOn:
+    text: ${output.sidemenu.okButton}
+
+- tapOn:
+    text: ${output.sidemenu.ultimateAnswerButton}
+
+
+- assertVisible:
+    text: ${output.sidemenu.ultimateAnswerValue}
+
+- assertVisible:
+    text: ${output.sidemenu.okButton}
+
+
+- tapOn:
+    text: ${output.sidemenu.okButton}
+
+
+- tapOn:
+    point: "10%,10%"
+
+- assertVisible:
+    id: ${output.dashboard.screen}
+
+- assertVisible:
+    id: ${output.sidemenu.screen}
+
+- tapOn:
+    text: ${output.sidemenu.ultimateAnswerButton}
+
+
+- assertVisible:
+    text: ${output.sidemenu.ultimateAnswerValue}
+
+- assertVisible:
+    text: ${output.sidemenu.okButton}
+
+
+- tapOn:
+    text: ${output.sidemenu.okButton}
+
+- assertVisible:
+    text: ${output.sidemenu.ultimateAnswerValue}

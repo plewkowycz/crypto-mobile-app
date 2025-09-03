@@ -1,0 +1,52 @@
+
+appId: org.awesome.app
+---
+- runFlow: ../elements/loadElements.yaml
+
+# Scenario 1
+- launchApp
+- tapOn:
+    id: ${output.settings.settingsTab}
+- assertVisible:
+    id: ${output.settings.screenTitle}
+
+
+- assertVisible:
+    text: ${output.settings.bitcoinFilter}
+- assertVisible:
+    text: ${output.settings.winnersFilter}
+- assertVisible:
+    text: ${output.settings.losersFilter}
+- takeScreenshot: nonSelectedFilters
+
+# Scenario 2
+- launchApp
+- tapOn:
+    id: ${output.settings.settingsTab}
+
+- tapOn:
+    text: ${output.settings.bitcoinFilter}
+- takeScreenshot: bitcoinSelected
+
+- tapOn:
+    text: ${output.settings.winnersFilter}
+- takeScreenshot: bitcoinAndWinnersSelected
+
+- tapOn:
+    text: ${output.settings.losersFilter}
+- takeScreenshot: bitcoinAndLosersSelected
+
+# Scenario 3
+- launchApp
+- tapOn:
+    id: ${output.settings.settingsTab}
+
+
+- tapOn:
+    text: ${output.settings.winnersFilter}
+- takeScreenshot: onlyWinnersSelected
+
+- tapOn:
+    text: ${output.settings.losersFilter}
+- takeScreenshot: onlyLosersSelected
+

@@ -1,0 +1,82 @@
+appId: org.awesome.app
+---
+- runFlow: ../elements/loadElements.yaml
+
+# Scenario 1
+- launchApp
+- tapOn:
+    id: ${output.navigation.settingsTab}
+- tapOn:
+    text: ${output.settings.bitcoinFilter}
+- tapOn:
+    id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyBitcoin}
+    timeout: 5000
+- takeScreenshot: integration_android_only_bitcoin_5
+
+- clearState
+
+# Scenario 2
+- launchApp
+- tapOn:
+    id: ${output.navigation.settingsTab}
+- tapOn:
+    text: ${output.settings.bitcoinFilter}
+- tapOn:
+    text: ${output.settings.winnersFilter}
+- tapOn:
+    id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyWinners}
+    timeout: 5000
+- takeScreenshot: integration_android_bitcoin_winners_4
+
+- clearState
+
+# Scenario 3
+- launchApp
+- tapOn:
+    id: ${output.navigation.settingsTab}
+- tapOn:
+    text: ${output.settings.bitcoinFilter}
+- tapOn:
+    text: ${output.settings.losersFilter}
+- tapOn:
+    id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyLosers}
+    timeout: 5000
+- takeScreenshot: integration_android_bitcoin_losers_1
+
+- clearState
+
+# Scenario 4
+- launchApp
+- tapOn:
+    id: ${output.navigation.settingsTab}
+- tapOn:
+    text: ${output.settings.winnersFilter}
+- tapOn:
+    id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.winners}
+    timeout: 5000
+- takeScreenshot: integration_android_winners_73
+
+- clearState
+
+# Scenario 5
+- launchApp
+- tapOn:
+    id: ${output.navigation.settingsTab}
+- tapOn:
+    text: ${output.settings.losersFilter}
+- tapOn:
+    id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.losers}
+    timeout: 5000
+- takeScreenshot: integration_android_losers_27
+
+

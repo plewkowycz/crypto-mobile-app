@@ -1,7 +1,0 @@
-# flow.yaml
-
-appId: org.awesome.app
----
-- launchApp
-- tapOn:
-    id: 'DashboardTab'
