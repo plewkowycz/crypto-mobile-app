@@ -8,10 +8,10 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "test:maestro:settings": "maestro test maestro/flows/settings/settings_flow.yaml --shard-all 2 --test-output-dir ./test-results/settings/screenshots",
-    "test:maestro:dashboard": "maestro test maestro/flows/dashboard/dashboard_flow.yaml --shard-all 2 --test-output-dir ./test-results/dashboard/screenshots",
-    "test:maestro:sidemenu": "maestro test maestro/flows/sidemenu/sidemenu_flow.yaml --shard-all 2 --test-output-dir ./test-results/sidemenu/screenshots",
-    "test:maestro:integration": "maestro test maestro/flows/integration/integration_flow.yaml --shard-all 2 --test-output-dir ./test-results/integration/screenshots"
+    "test:maestro:settings": "maestro test maestro/flows/settings/settings_flow.yaml --shard-all 2 --test-output-dir ./test-results/settings/screenshots --format html --output ./test-results/settings/report.html",
+    "test:maestro:dashboard": "maestro test maestro/flows/dashboard/dashboard_flow.yaml --shard-all 2 --test-output-dir ./test-results/dashboard/screenshots --format html --output ./test-results/dashboard/report.html",
+    "test:maestro:sidemenu": "maestro test maestro/flows/sidemenu/sidemenu_flow.yaml --shard-all 2 --test-output-dir ./test-results/sidemenu/screenshots --format html --output ./test-results/sidemenu/report.html",
+    "test:maestro:integration": "maestro test maestro/flows/integration/integration_flow.yaml --shard-all 2 --test-output-dir ./test-results/integration/screenshots --format html --output ./test-results/integration/report.html"
   },
   "dependencies": {
     "@react-native-community/checkbox": "^0.5.20",

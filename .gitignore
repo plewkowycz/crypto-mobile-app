@@ -65,7 +65,7 @@ yarn-error.log
 
 # testing
 /coverage
-/test-results
+test-results
 
 # Yarn
 .yarn/*

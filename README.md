@@ -7,7 +7,6 @@ As part of delivery we will do:
 - Do exploratory testing to understand application and possible flows
 - Implement different flows and Page Object Model
 - Implement E2E testing
-- Implement CI/CD 
 - Prepare proper report to review results
 
 
@@ -160,6 +159,8 @@ For single device testing, it is recommended to follow this guide:
 
 
 Note: Sidemenu test scenarios were not completed. During delivery, we had difficulty clicking the hamburger button because it lacked a proper ID, and tapping by screen coordinates proved unreliable. Since modifying the app was not part of the exercise, tests were created but they may fail due to the missing hamburger identifier.
+
+Note: Test related to dashboard are split between iOS and Android as it was unsucesful to catch X coins value with iOS.
 
 
 # Screenshots
