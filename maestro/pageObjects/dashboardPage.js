@@ -1,6 +1,6 @@
 output.dashboard = {
     screen: 'dashboard',
-    screenTitle: 'dashboard-title',
+    screenTitle: 'coins-balance',
     
     dashboardTab: 'DashboardTab',
     

@@ -46,8 +46,8 @@ function Dashboard() {
       top={
         <View style={styles.titleWrapper}>
           <Text
-            testID="dashboard-title"
-            accessibilityLabel="dashboard-title"
+            testID="coins-balance"
+            accessibilityLabel={`${coinsToRender.length || '-'} coins`}
             style={styles.h1}
           >
             {coinsToRender.length || '-'} coins

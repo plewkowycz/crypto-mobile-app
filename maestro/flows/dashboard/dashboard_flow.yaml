@@ -1,11 +1,36 @@
 appId: org.awesome.app
 ---
-- runFlow:
-    when:
-      platform: android
-    file: dashboard_android.yaml
+- runFlow: ../elements/loadElements.yaml
+- launchApp
 
-- runFlow:
-    when:
-      platform: ios
-    file: dashboard_ios.yaml
+- assertVisible:
+    id: ${output.dashboard.screen}
+
+- assertVisible:
+    id: ${output.dashboard.dashboardTab}
+
+- assertVisible:
+    id: ${output.dashboard.screenTitle}
+
+- extendedWaitUntil:
+    visible: "100 coins"
+    timeout: 5000
+
+- takeScreenshot: dashboard100Coins
+
+- assertVisible:
+    id: ${output.dashboard.bitcoinCoin}
+- assertVisible:
+    id: ${output.dashboard.bitcoinName}
+- assertVisible:
+    id: ${output.dashboard.bitcoinPrice}
+- assertVisible:
+    id: ${output.dashboard.bitcoinSymbol}
+- assertVisible:
+    id: ${output.dashboard.bitcoinPercentage}
+
+- tapOn:
+    id: ${output.dashboard.bitcoinCoin}
+- assertVisible:
+    text: ${output.dashboard.bitcoinPopupMessage}
+- tapOn: "OK"

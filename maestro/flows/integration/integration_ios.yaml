@@ -10,6 +10,9 @@ appId: org.awesome.app
     text: ${output.settings.bitcoinFilter}
 - tapOn:
     id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyBitcoin}
+    timeout: 5000
 - takeScreenshot: integration_ios_only_bitcoin_5
 
 - clearState
@@ -24,6 +27,9 @@ appId: org.awesome.app
     text: ${output.settings.winnersFilter}
 - tapOn:
     id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyWinners}
+    timeout: 5000
 - takeScreenshot: integration_ios_bitcoin_winners_4
 
 - clearState
@@ -38,6 +44,9 @@ appId: org.awesome.app
     text: ${output.settings.losersFilter}
 - tapOn:
     id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.onlyLosers}
+    timeout: 5000
 - takeScreenshot: integration_ios_bitcoin_losers_1
 
 - clearState
@@ -50,6 +59,9 @@ appId: org.awesome.app
     text: ${output.settings.winnersFilter}
 - tapOn:
     id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.winners}
+    timeout: 5000
 - takeScreenshot: integration_ios_winners_73
 
 - clearState
@@ -62,6 +74,9 @@ appId: org.awesome.app
     text: ${output.settings.losersFilter}
 - tapOn:
     id: ${output.navigation.dashboardTab}
+- extendedWaitUntil:
+    visible: ${output.dashboard.losers}
+    timeout: 5000
 - takeScreenshot: integration_ios_losers_27
 
 

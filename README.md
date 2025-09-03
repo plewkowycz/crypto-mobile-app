@@ -1,6 +1,6 @@
 # Assignment
 
-This repository demonstrates end-to-end (E2E) testing for a React Native app using the Maestro framework as part of assigment.
+This repository demonstrates end-to-end (E2E) testing for a React Native app using the Maestro framework as part of an assignment.
 
 As part of the delivery we:
 - Document the steps in this README
@@ -10,7 +10,7 @@ As part of the delivery we:
 - Generate reports and screenshots for review
 
 
-# Global pre-requisites
+# Global prerequisites
 
 - Maestro: [Getting started](https://docs.maestro.dev/) (verify with `maestro --version`)
 - Java (per Maestro docs)
@@ -48,7 +48,7 @@ Run `npx pod-install`
 
 The app shows a mocked list of 100 cryptocurrencies to simulate a real user experience. It includes:
 - A Side Menu with a "Get the ultimate answer" button
-- A Dashboard with a scrolling list of 100  coins
+- A Dashboard with a scrolling list of 100 coins
 - Settings with three filters: Only show "Bitcoin" coins, Only show winners, Only show losers
 - Support for rotation
 
@@ -147,10 +147,14 @@ For single-device testing, see:
 [Specify a Device - Maestro Documentation](https://docs.maestro.dev/advanced/specify-a-device)
 
 
+# Selectors
+
+On iOS the dashboard title used an `accessibilityLabel` and had no `accessibilityIdentifier`, so the visible text "100 coins" was not available for matching. Android exposes the visible text, so that check passed there. We added a stable test id (`testID="coins-balance"`) and set the iOS label to the dynamic value so both platforms can reliably assert the same thing.
+
 # Notes
 
 
-- Dashboard (iOS): Tests are split between iOS and Android because extracting the dynamic "X coins" value on iOS was unreliable. iOS validations use screenshots where text selectors are unstable.
+- Integration iOS and Android tests are split on purpose to show different approaches to test architecture
 - We added pageObjects to centralize selectors. As a next step, consider adding common flows for reuse.
 
 
