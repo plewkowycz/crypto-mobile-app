@@ -6,7 +6,7 @@ appId: org.awesome.app
 # Scenario 1
 - launchApp
 - tapOn:
-    id: ${output.settings.settingsTab}
+    id: ${output.navigation.settingsTab}
 - assertVisible:
     id: ${output.settings.screenTitle}
 
@@ -22,7 +22,7 @@ appId: org.awesome.app
 # Scenario 2
 - launchApp
 - tapOn:
-    id: ${output.settings.settingsTab}
+    id: ${output.navigation.settingsTab}
 
 - tapOn:
     text: ${output.settings.bitcoinFilter}
@@ -39,7 +39,7 @@ appId: org.awesome.app
 # Scenario 3
 - launchApp
 - tapOn:
-    id: ${output.settings.settingsTab}
+    id: ${output.navigation.settingsTab}
 
 
 - tapOn:

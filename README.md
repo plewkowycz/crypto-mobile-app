@@ -173,3 +173,14 @@ Each test flow generates screenshots at key validation points:
 - **Integration flow**: Screenshots of end-to-end user journeys
 
 
+# Reports
+
+Reports are generate automatily as part run each of test suite like example
+
+```bash
+npm run test:maestro:integration
+```
+
+Reports can be founder under test-results as HTML file, example below how it looks like
+
+![report](assigment/reports.png)
