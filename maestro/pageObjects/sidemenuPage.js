@@ -1,9 +1,5 @@
-// sidemenuPage.js
-
 output.sidemenu = {
     screen: 'sidemenu',
-
-    hamburgerMenuId: 'drawerToggle',
 
     sideMenuText: 'Side menu',
     legendText: 'Legend says that if you click on the button below, you may get the answer to the Ultimate Question of Life, the Universe, and Everything...',

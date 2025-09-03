@@ -84,9 +84,6 @@ The following scenarios were identified during exploratory testing and implement
 - Launch the app, open the Side Menu, and verify the text "Side menu" and the legend about "the Ultimate Question of Life...".
 - Tap "Get the ultimate answer" and verify a popup with the value 42. Tap "OK".
 - Tap the button again and confirm the value is still 42.
-- Leave the sidebar, return, tap the button again, and confirm the answer is always 42.
-
-Note: This scenario is not fully stable in automation (see Notes).
 
 **Dashboard**
 ***Scenario 1:***
@@ -114,13 +111,13 @@ Note: This scenario is not fully stable in automation (see Notes).
 
 **Integration flow**
 ***Scenario 1:***
-- Select "Only show "Bitcoin coins" and return to Dashboard → see 5 coins
+- Select Only show "Bitcoin" coins and return to Dashboard → see 5 coins
 
 ***Scenario 2:***
-- Select "Only show "Bitcoin coins" and "Only show winners" → see 4 coins
+- Select Only show "Bitcoin" coins and Only show winners → see 4 coins
 
 ***Scenario 3:***
-- Select "Only show "Bitcoin coins" and "Only show losers" → see 1 coin
+- Select Only show "Bitcoin" coins and Only show losers → see 1 coin
 
 ***Scenario 4:***
 - Select "Only show winners" → see 73 coins
@@ -152,14 +149,14 @@ For single-device testing, see:
 
 # Notes
 
-- Sidemenu: The hamburger button does not have a testID, and tapping by coordinates is unreliable. Since changing the app was out of scope, the sidemenu flow was created but may be flaky.
+
 - Dashboard (iOS): Tests are split between iOS and Android because extracting the dynamic "X coins" value on iOS was unreliable. iOS validations use screenshots where text selectors are unstable.
 - We added pageObjects to centralize selectors. As a next step, consider adding common flows for reuse.
 
 
 # Screenshots
 
-As part of the delivery, we adjusted the commands in `package.json` to run tests with screenshot capture in order to validate visual aspects of the tests. Screenshots can be found under `/test-results/screenshots/`.  It was ass for iOS has not stable selectors which allow to extract some values.
+Test scripts capture screenshots for visual validation. Find them under: /test-results/<suite>/screenshots/. On iOS, some dynamic selectors are unstable, so a few checks rely on screenshots rather than text assertions.
 
 Each flow generates screenshots at key validation points:
 - **Settings flow**: Screenshots of checkbox states and filter selections

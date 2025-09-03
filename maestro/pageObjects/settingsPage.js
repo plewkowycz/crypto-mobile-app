@@ -1,4 +1,3 @@
-// settings.js
 output.settings = {
     screen: 'settings',
     screenTitle: 'settings-title',

@@ -1,4 +1,3 @@
-// dashboardPage.js
 output.dashboard = {
     screen: 'dashboard',
     screenTitle: 'dashboard-title',

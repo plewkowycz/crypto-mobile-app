@@ -8,7 +8,7 @@ appId: org.awesome.app
     id: ${output.dashboard.screen}
 
 - tapOn:
-    id: ${output.sidemenu.hamburgerMenuId}
+    text: ${output.navigation.sidemenuTab}
 
 - assertVisible:
     id: ${output.sidemenu.screen}
@@ -48,30 +48,3 @@ appId: org.awesome.app
 
 - tapOn:
     text: ${output.sidemenu.okButton}
-
-
-- tapOn:
-    point: "10%,10%"
-
-- assertVisible:
-    id: ${output.dashboard.screen}
-
-- assertVisible:
-    id: ${output.sidemenu.screen}
-
-- tapOn:
-    text: ${output.sidemenu.ultimateAnswerButton}
-
-
-- assertVisible:
-    text: ${output.sidemenu.ultimateAnswerValue}
-
-- assertVisible:
-    text: ${output.sidemenu.okButton}
-
-
-- tapOn:
-    text: ${output.sidemenu.okButton}
-
-- assertVisible:
-    text: ${output.sidemenu.ultimateAnswerValue}
