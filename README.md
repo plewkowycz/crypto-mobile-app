@@ -1,21 +1,21 @@
 # Assignment
 
-This is an E2E testing assignment to demonstrate QE skills. We will implement automated e2e tests for a mobile React Native app using Maestro testing framework.
+This repository demonstrates end-to-end (E2E) testing for a React Native app using the Maestro framework as part of assigment.
 
-As part of delivery we will do:
-- README.md documentation which presents all steps done as part of assignment
-- Do exploratory testing to understand application and possible flows
-- Implement different flows and Page Object Model
-- Implement E2E testing
-- Prepare proper report to review results
+As part of the delivery we:
+- Document the steps in this README
+- Perform exploratory testing to understand the app and its flows
+- Implement flows and a Page Object Model
+- Implement E2E tests
+- Generate reports and screenshots for review
 
 
 # Global pre-requisites
 
--   Maestro: [Getting started](https://docs.maestro.dev/)
--   Install proper Java version (see Maestro documentation)
--   Ensure Node.js 18+ is installed
--   `npm`
+- Maestro: [Getting started](https://docs.maestro.dev/) (verify with `maestro --version`)
+- Java (per Maestro docs)
+- Node.js 18+
+- npm
 
 ## Install dependencies
 Run `npm i`  
@@ -25,13 +25,13 @@ Run `npx pod-install`
 # iOS Development Environment
 - Ensure Xcode is installed and updated
 - Verify iOS simulators are available (`xcrun simctl list devices`)
-- Test app launch on iOS simulator (`npm run ios`)
+- Test app launch on an iOS simulator (`npm run ios`)
 
 # Android Development Environment
-- Install Android Studio with Android SDK
-- Create Android Virtual Device 
-- Set up environment variables 
-- Test app launch on Android emulator (`npm run android`)
+- Install Android Studio with the Android SDK
+- Create an Android Virtual Device
+- Set up environment variables
+- Test app launch on an Android emulator (`npm run android`)
 
 # Devices used for testing
 - Pixel 6 API 33
@@ -46,106 +46,98 @@ Run `npx pod-install`
 
 # Exploratory testing
 
-As part of doing exploratory testing we can come to conclusion that app represents list of cryptocurrency, which is mocked but simulates user perspective like that app could look like. In the app we have:
-- Side Menu with "Get the ultimate answer" button
-- Dashboard with scrolling list of cryptocurrency where you can view 100 coins, different currency items which are clickable 
-- Application settings where we can filter Dashboard with currency based on three items: Only show "Bitcoin" coins, Only show winners, Only show losers
-- App adjusts view to rotation
+The app shows a mocked list of 100 cryptocurrencies to simulate a real user experience. It includes:
+- A Side Menu with a "Get the ultimate answer" button
+- A Dashboard with a scrolling list of 100  coins
+- Settings with three filters: Only show "Bitcoin" coins, Only show winners, Only show losers
+- Support for rotation
 
 # Bugs
-As part of exploratory testing we found that:
 
-**Title:**  Good choice message is return on negative profit
-1. Launch app
-2. Go to Settings and select radio button "Only show losers"
-3. Go back to Dashboard and select any losers 
-4. Tap on it
+Title: "Good choice" message shown for a coin with negative profit
+1. Launch the app
+2. Go to Settings and select "Only show losers"
+3. Go back to Dashboard
+4. Tap a loser coin
 5. Observe
 
-
-
-**Actual results:**
-Good choice message
-
+Actual results: "Good choice" message  
+Expected results: "Bad choice" message  
 ![bug_1](assigment/losers.png)
 
-
-
-**Expected results:** 
-Bad choice message
-
-
-**Title:** Bitcoin SV return Uncaught error
-1. Launch app
-2. You are on Dashboard page, look for Bitcoin SV
-3. Tap on it
+Title: Bitcoin SV tap triggers an uncaught error
+1. Launch the app
+2. On Dashboard, find "Bitcoin SV"
+3. Tap it
 4. Observe
 
-
-
-**Actual results:**
-Bitcoin SV return Uncaught error
-![bug_1](assigment/bitcoin_sv.png)
-
-
-
-**Expected results:** 
-Bad choice message
+Actual results: Uncaught error  
+Expected results: "Bad choice" message  
+![bug_2](assigment/bitcoin_sv.png)
 
 # Scenarios
 
-As part of exploratory testing we did identify below scenarios which we plan to implement as part of our flows. 
+The following scenarios were identified during exploratory testing and implemented in flows.
 
-**Side menu:**
-***Scenario 1:*** 
-- Launch the app, go to the Side menu and verify you see the text "Side menu" and the text "Legend says that if you click on the button...". Tap the button "Get the ultimate answer" and verify a popup appears with the value 42. Tap "OK". Tap the button again and confirm the value is 42. Leave the sidebar and come back a third time, tap the button again and confirm the answer is always 42.
+**Side menu**
+***Scenario 1:***
+- Launch the app, open the Side Menu, and verify the text "Side menu" and the legend about "the Ultimate Question of Life...".
+- Tap "Get the ultimate answer" and verify a popup with the value 42. Tap "OK".
+- Tap the button again and confirm the value is still 42.
+- Leave the sidebar, return, tap the button again, and confirm the answer is always 42.
 
-NOTE: This scenario is not fully functional in automation tests.
+Note: This scenario is not fully stable in automation (see Notes).
 
-**Dashboard:**
-***Scenario 1:*** 
-- Launch the app, confirm you see Tabs and 100 coins with scrolling list. Confirm that first item on the top of list is Bitcoin with value $9228.8 and +0.93%. Click on it and confirm you see pop up with information "Good choice: Bitcoin @ $9228.8!". 
+**Dashboard**
+***Scenario 1:***
+- Launch the app. Verify the tabs are visible and the Dashboard shows 100 coins in a scrollable list.
+- Confirm the first item is Bitcoin with price $9228.8 and +0.93%.
+- Tap it and confirm the popup message: "Good choice: Bitcoin @ $9228.8!".
 
-**Settings:** 
-***Scenario 1:*** 
-- Launch the app, go to Settings by clicking Settings button. Confirm Application settings window appears. Confirm none of the buttons are selected and you see three  buttons called:
+**Settings**
+***Scenario 1:***
+- Launch the app, go to Settings. Verify "Application Settings" header is visible, and none of the checkboxes are selected.
+- Verify the three options:
   - Only show "Bitcoin" coins
   - Only show winners
   - Only show losers
 
-***Scenario 2:*** 
-- Click on button with Bitcoin. Click on "Only show winners" and confirm now 2nd blue check appears. Click on "Only show losers" and confirm that 2nd blue check from "Only show winners" is no longer there and 3rd one appears under "Only show losers"
+***Scenario 2:***
+- Tap "Only show \"Bitcoin\" coins"
+- Tap "Only show winners" and confirm a second check appears
+- Tap "Only show losers" and confirm the "winners" check is cleared and "losers" is checked
 
-***Scenario 3:*** 
-- Click on radio button "Only show winners" and confirm you see only one check done. Click on "Only show losers" and confirm that only new check appears and check from "Only show winners" is no longer there
+***Scenario 3:***
+- Tap "Only show winners" and confirm only one check
+- Tap "Only show losers" and confirm the check moves from "winners" to "losers" (only one check at a time)
 
 
-**Integration flow:**
-***Scenario 1:*** 
-- Launch the app, go to settings and select "Only show Bitcoins" coins and come back to Dashboard, confirm you will see only 5 coins 
+**Integration flow**
+***Scenario 1:***
+- Select "Only show "Bitcoin coins" and return to Dashboard → see 5 coins
 
-***Scenario 2:*** 
-- Launch the app, go to settings and select "Only show Bitcoins" coins and "Only show winners" and come back to Dashboard, confirm you will see only 4 coins 
+***Scenario 2:***
+- Select "Only show "Bitcoin coins" and "Only show winners" → see 4 coins
 
-***Scenario 3:*** 
-- Launch the app, go to settings and select "Only show Bitcoins" coins and "Only show losers" and come back to Dashboard, confirm you will see only 1 coin 
+***Scenario 3:***
+- Select "Only show "Bitcoin coins" and "Only show losers" → see 1 coin
 
-***Scenario 4:*** 
-- Launch the app, go to settings and select "Only show winners" and come back to Dashboard, confirm you will see only 73 coins 
+***Scenario 4:***
+- Select "Only show winners" → see 73 coins
 
-***Scenario 5:*** 
-- Launch the app, go to settings and select "Only show losers" and come back to Dashboard, confirm you will see only 27 coins 
+***Scenario 5:***
+- Select "Only show losers" → see 27 coins
 
 
 
 
 # Testing
 
-Use Maestro to run end-to-end flows against the app running on a simulator.
+Use Maestro to run E2E flows against a simulator/emulator.
 
 You can run tests against a single device or use sharding to run on both devices.
 
-For sharding, use the commands below:
+For sharding:
 
 ```bash
 npm run test:maestro:settings
@@ -154,20 +146,22 @@ npm run test:maestro:sidemenu
 npm run test:maestro:integration
 ```
 
-For single device testing, it is recommended to follow this guide:
+For single-device testing, see:
 [Specify a Device - Maestro Documentation](https://docs.maestro.dev/advanced/specify-a-device)
 
 
-Note: Sidemenu test scenarios were not completed. During delivery, we had difficulty clicking the hamburger button because it lacked a proper ID, and tapping by screen coordinates proved unreliable. Since modifying the app was not part of the exercise, tests were created but they may fail due to the missing hamburger identifier.
+# Notes
 
-Note: Test related to dashboard are split between iOS and Android as it was unsucesful to catch X coins value with iOS.
+- Sidemenu: The hamburger button does not have a testID, and tapping by coordinates is unreliable. Since changing the app was out of scope, the sidemenu flow was created but may be flaky.
+- Dashboard (iOS): Tests are split between iOS and Android because extracting the dynamic "X coins" value on iOS was unreliable. iOS validations use screenshots where text selectors are unstable.
+- We added pageObjects to centralize selectors. As a next step, consider adding common flows for reuse.
 
 
 # Screenshots
 
 As part of the delivery, we adjusted the commands in `package.json` to run tests with screenshot capture in order to validate visual aspects of the tests. Screenshots can be found under `/test-results/screenshots/`.  It was ass for iOS has not stable selectors which allow to extract some values.
 
-Each test flow generates screenshots at key validation points:
+Each flow generates screenshots at key validation points:
 - **Settings flow**: Screenshots of checkbox states and filter selections
 - **Dashboard flow**: Screenshots of coin interactions and popup messages
 - **Integration flow**: Screenshots of end-to-end user journeys
@@ -175,12 +169,12 @@ Each test flow generates screenshots at key validation points:
 
 # Reports
 
-Reports are generate automatily as part run each of test suite like example
+HTML reports are generated automatically when running a suite, for example:
+![report](assigment/reports.png)
 
 ```bash
 npm run test:maestro:integration
 ```
 
-Reports can be founder under test-results as HTML file, example below how it looks like
-
-![report](assigment/reports.png)
+Open the report at:
+`test-results/<suite>/report.html` (e.g., `test-results/integration/report.html`)
